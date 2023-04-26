@@ -1,3 +1,7 @@
+//Selection Sort : 1) Select minimal 2) Swap
+//Time Complexity : Best, Average, Worst -> O(n^2)
+//Space Complexity : O(1), in-place sorting
+
 #include <bits/stdc++.h>
 using namespace std;
 
