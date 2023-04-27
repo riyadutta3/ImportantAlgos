@@ -1,3 +1,7 @@
+//Bubble Sort -> Take largest element to end of array
+//Complexity -> Best Case = O(n), Avg & Worst Case = O(n^2)
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
