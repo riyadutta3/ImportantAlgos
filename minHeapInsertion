@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void max_heap(int *arr,int n)
+void min_heap(int *arr,int n)
 {
     int i=n;
     while(i>1)
@@ -36,7 +36,7 @@ int main()
     cin>>value;
     arr[n+1]=value;
     
-    max_heap(arr,n);
+    min_heap(arr,n);
 
     for(int i=1;i<n+1;i++)
     {
