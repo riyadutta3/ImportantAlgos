@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void max_heap(int *arr,int n)
+{
+    int i=1;
+    while(i<n)
+    {
+        int left=arr[2*i];
+        int right=arr[2*i+1];
+        int larger=left>right?2*i:2*i+1;
+        if(arr[i]<arr[larger])
+        {
+            swap(arr[i],arr[larger]);
+           
+            i=larger;
+        }
+        else
+        return;
+    }
+    
+    return;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n+1];
+    arr[0]=0;
+    
+    for(int i=1;i<=n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    
+    arr[1]=arr[n];
+    max_heap(arr,n);
+
+    for(int i=1;i<n;i++)
+    {
+        cout<<arr[i];
+    }
+
+    return 0;
+}
