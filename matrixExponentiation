@@ -1,0 +1,64 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+
+    const  int mod=1e9+7;
+    
+    void multiply(long long int f[2][2], long long int m[2][2])
+    {
+    int x = ((f[0][0]%mod * m[0][0]%mod)%mod + (f[0][1]%mod * m[1][0]%mod)%mod)%mod;
+    int y = ((f[0][0]%mod * m[0][1]%mod)%mod + (f[0][1]%mod * m[1][1]%mod)%mod)%mod;
+    int z = ((f[1][0]%mod * m[0][0]%mod)%mod + (f[1][1]%mod * m[1][0]%mod)%mod)%mod;
+    int w = ((f[1][0]%mod * m[0][1]%mod)%mod + (f[1][1]%mod * m[1][1]%mod)%mod)%mod;
+    
+    f[0][0] = x;
+    f[0][1] = y;
+    f[1][0] = z;
+    f[1][1] = w;
+    }
+    
+    void power(long long int f[2][2], long long int n)
+    {
+        if(n==0 || n==1)
+        return ;
+        
+        long long int m[2][2]={{1,1},{1,0}};
+        
+        power(f,n/2);
+        multiply(f,f);
+        if(n%2!=0)
+        multiply(f,m);
+    }
+class Solution{
+    public:
+    
+    int FindNthTerm(long long int n) {
+        n=n+1;
+        long long int f[2][2] = {{1,1},{1,0}};
+        
+        if(n==0)
+        return 0;
+        
+        power(f,n-1);
+        
+        return f[0][0];
+        
+    }
+};
+
+//{ Driver Code Starts.
+int main(){
+	int tc;
+	cin >> tc;
+	while(tc--){
+		long long int n;
+		cin >> n;
+		Solution obj;
+		int ans = obj.FindNthTerm(n);
+		cout << ans << "\n";
+	}
+	return 0;
+}
+// } Driver Code Ends
